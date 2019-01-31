@@ -64,6 +64,18 @@ export default class App extends Component {
                 }
             });
         };
+
+        this.onFilterAll = () => {
+            console.log('On Filter All');
+        };
+
+        this.onFilterActive = () => {
+            console.log('On Filter Active');
+        };
+
+        this.onFilterDone = () => {
+            console.log('On Filter Done');
+        };
     }
 
     createTodoItem(label) {
@@ -99,7 +111,11 @@ export default class App extends Component {
                 <AppHeader toDo={todoCount} done={doneCount}/>
                 <div className="top-panel d-flex">
                     <SearchPanel/>
-                    <ItemStatusFilter/>
+                    <ItemStatusFilter
+                        onFilterAll={ this.onFilterAll }
+                        onFilterActive={ this.onFilterActive }
+                        onFilterDone={ this.onFilterDone }
+                    />
                 </div>
 
                 <TodoList
